@@ -9,9 +9,11 @@ This is a simple python script to extract the content of a Wikipedia dump and sa
 
 ## Getting started
 
-1. Download the [Wikipedia dump](https://dumps.wikimedia.org/) corresponding to the desired languge from e.g. [here for ALS](https://dumps.wikimedia.org/alswiki/20230701/), the required file for ALS is [https://dumps.wikimedia.org/alswiki/20230701/alswiki-20230701-pages-articles.xml.bz2](https://dumps.wikimedia.org/alswiki/20230701/alswiki-20230701-pages-articles.xml.bz2).
-2. Run Wiki Extractor on the downloaded dump file, e.g.: `python -m wikiextractor.WikiExtractor alswiki-20230701-pages-articles.xml.bz2`
-3. To convert the data to the required format, run the script [wikiExtract2csv.py](wikiExtract2csv.py) on the output generated in step 2.
+1. Download the [Wikipedia dump](https://dumps.wikimedia.org/) corresponding to the desired languge from e.g. [here for ALS](https://dumps.wikimedia.org/alswiki/20230701/), the required file for ALS is [https://dumps.wikimedia.org/alswiki/20230701/alswiki-20230701-pages-articles.xml.bz2](https://dumps.wikimedia.org/alswiki/20230701/alswiki-20230701-pages-articles.xml.bz2). The corresponding file on the site [https://dumps.wikimedia.org/alswiki/20230701/](https://dumps.wikimedia.org/alswiki/20230701/):
+<img width="796" alt="download-specifics" src="https://github.com/Fenerator/wikiExtract2csv/assets/33670163/8646e15a-5e39-4c38-9662-24af4cd68704">
+
+3. Run Wiki Extractor on the downloaded dump file, e.g.: `python -m wikiextractor.WikiExtractor alswiki-20230701-pages-articles.xml.bz2`
+4. To convert the data to the required format, run the script [wikiExtract2csv.py](wikiExtract2csv.py) on the output generated in step 2.
 
 ## Usage
 
