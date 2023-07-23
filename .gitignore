@@ -130,3 +130,7 @@ mrl/bin/
 mrl/
 
 *.json
+
+.DS_Store
+
+text/*
