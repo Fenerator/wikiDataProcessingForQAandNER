@@ -134,3 +134,5 @@ mrl/
 .DS_Store
 
 text/*
+
+*.bz2
