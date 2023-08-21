@@ -122,9 +122,11 @@ if __name__ == "__main__":
     print(args.split_by)
     if args.split_by == "both":
         """generate two csv files, one for NER and one for QA"""
+        # NER
         args.split_by = "sentence"
         extraction(args)
 
+        # QA
         args.split_by = "paragraph"
         extraction(args)
 

@@ -43,7 +43,11 @@ def read_text(filenam):
 
 if __name__ == "__main__":
     list_ids = read_text("id_list.csv")
-    list_langs = ["EN", "TR", "AZ", "ID", "ALS", "UZ", "YO", "IG", "KK"]
+
+    # keep only first 100000 ids
+    list_ids = list_ids[:100000]
+
+    list_langs = ["en", "tr", "az", "id", "als", "uz", "yo", "ig", "kk"]
 
     lang_wiki = dict([(l + "wiki", l) for l in list_langs])
 
@@ -54,7 +58,7 @@ if __name__ == "__main__":
     for i, id in enumerate(list_ids):
         val = None
         try:
-            val = get_wikipedia_url_from_wikidata_id(id, lang=None, debug=False)
+            val = get_wikipedia_url_from_wikidata_id(id, lang=None, debug=True)
         except:
             pass
 
@@ -65,8 +69,8 @@ if __name__ == "__main__":
                     # print(l, val[l])
                     dict_lang[l].append([id, val[l]])
 
-        if i % 1000 == 0:
-            print(i)
+        # if i % 1000 == 0:
+        print(i)
 
     for l in lang_wiki:
         df = pd.DataFrame(dict_lang[l], columns=["qid", "wiki_url"])

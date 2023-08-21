@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # SETTINGS:
-LANG="kk" # TODO
-LINK="https://dumps.wikimedia.org/kkwiki/20230720/kkwiki-20230720-pages-articles.xml.bz2" # TODO
+LANG="en" # TODO
+LINK="https://dumps.wikimedia.org/enwiki/20230720/enwiki-20230720-pages-articles1.xml-p1p41242.bz2" # TODO
 DUMP_FILE=$LANG"wiki-20230720-pages-articles.xml.bz2"
 OUT_FOLDER="../../Documents/MRL_ST_2023/"$LANG"wiki_extracted" # TODO
 # END SETTINGS
