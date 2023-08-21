@@ -126,6 +126,8 @@ def extraction(args, frequent_qids):
     links = url_df["wiki_url"].tolist()
     qids = url_df["qid"].tolist()
 
+    # TODO sort both such that the frequent qids appear first
+
     for link, qid in zip(links, qids):
         sub_id = 0
         doc_id = qid
@@ -141,23 +143,13 @@ def extraction(args, frequent_qids):
             text_parts = split_text(text, args.split_by)
 
             for text in text_parts:
-                # first, process frequent articles only
-                frequent_metadata = []
-                non_frequent_metadata = []
-                if qid in frequent_qids:
-                    print(f"Processing frequent article {doc_id}, {url}")
-                    frequent_metadata.append([doc_id, sub_id, title, url, text])
-                else:
-                    non_frequent_metadata.append([doc_id, sub_id, title, url, text])
-
-                # writer.writerow([doc_id, sub_id, title, url, text]) # WAS OLD VERSION
+                writer.writerow([doc_id, sub_id, title, url, text])  # WAS OLD VERSION
                 sub_id += 1
 
             counter += 1
             print(f"Processed Article {counter} / {sample_size}")
 
-        # if counter == sample_size: # OLD
-        if len(frequent_metadata) == sample_size:
+        if counter == sample_size:
             outfile.close()
             return True
 
