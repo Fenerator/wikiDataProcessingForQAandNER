@@ -102,19 +102,21 @@ def split_text(text, split_by, sent_threshold=60):
 def extraction(args, frequent_qids):
     # find all files in the input directory
     input_file = Path(args.input)
+    lang = input_file.stem
+    print(f"Language: {lang}")
     output_dir = Path(args.output)
 
     # create the output directory if it does not exist
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if args.split_by == "sentence":
-        output_file = output_dir / "articles_sampled_NER_new_selection.csv"
+        output_file = output_dir / f"articles_sampled_NER_new_selection_{lang}.csv"
     elif args.split_by == "paragraph":
-        output_file = output_dir / "articles_sampled_QA_new_selection.csv"
+        output_file = output_dir / f"articles_sampled_QA_new_selection_{lang}.csv"
 
     print(f"Input file: {input_file}")
     print(f"Output file: {output_file}")
-    print(f"Generating {args.split_by} samples of {args.sample_size} articles with a minimum length of {args.min} characters")
+    print(f"Generating {args.split_by} samples of {args.sample_size} articles")
 
     # create a new csv file
     outfile = open(output_file, "w")
@@ -122,7 +124,6 @@ def extraction(args, frequent_qids):
     writer.writerow(["id", "sub_id", "title", "url", "text"])
 
     sample_size = args.sample_size
-    min_article_length = args.min
 
     counter = 0
 
@@ -169,7 +170,12 @@ def extraction(args, frequent_qids):
 
         title, text = get_text_from_url(link)
 
-        assert len(text) > 0 and len(title) > 0 and len(url) > 0 and len(doc_id) > 0, f"Error in {input_file}: empty field in article {doc_id}, {url}"
+        # assert len(text) > 0 and len(title) > 0 and len(url) > 0 and len(doc_id) > 0, f"Error in {input_file}: empty field in article {doc_id}, {url}"
+        try:
+            assert len(text) > 0 and len(title) > 0 and len(url) > 0 and len(doc_id) > 0, f"Error in {input_file}: empty field in article {doc_id}, {url}"
+        except AssertionError:
+            print(f"Error in {input_file}: empty field in article {doc_id}, {url}, Title {title}, \n Text: {text}")
+            continue
 
         # require a minimum length of the article # TODO
 
