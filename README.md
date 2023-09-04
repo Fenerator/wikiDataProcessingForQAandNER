@@ -76,6 +76,8 @@ python questions2QA.py --input "../../Documents/alswiki/text/example_QA_export.j
 
 ## ``get_text_from_url.py``
 
+Script to scrape the relevant wikipedia articles from the urls in the language biography csv files. The script extracts the text from the urls and saves it in a csv file containing the id, url, and text of each article. The script also splits the text into sentences and paragraphs and saves the output in seperate csv files.
+
 ### Usage
 
 First create language biography by running: wikiExtract2csv/NER/get_wikipedia_url_from_wikidata.py on the `id_list.csv` file. Make sure to change the language codes in the script.

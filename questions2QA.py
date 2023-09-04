@@ -14,24 +14,36 @@ def main(args):
     # create a new csv file
     outfile = open(output_file, "w")
     writer = csv.writer(outfile, delimiter=",")
-    writer.writerow(["id", "title", "url", "text", "question"])
+    writer.writerow(["id", "title", "url", "text", "question", "Q_Annotator"])
 
     # read labelstudio json snapshot data
     with open(input_file) as f:
         data = json.load(f)
 
+    nr_questions = 0
     for task in data:
-        questions = task["annotations"][0]["result"][0]["value"]["text"]  # TODO multiple annotators
-        id = task["data"]["id"]
-        url = task["data"]["url"]
-        title = task["data"]["title"]
-        text = task["data"]["text"]
+        if task["annotations"] == []:
+            print(f"WARNING: no annotations for task {task['id']}")
+            continue
+        try:
+            q_annotator = task["annotations"][0]["completed_by"]["email"]
+            questions = task["annotations"][0]["result"][0]["value"]["text"]  # TODO multiple annotators on same task?
 
+            id = task["data"]["id"]
+            url = task["data"]["url"]
+            title = task["data"]["title"]
+            text = task["data"]["text"]
+        except:
+            print(f"Error: {task}")
         # create article - question pairs
+
         for q in questions:
-            writer.writerow([id, title, url, text, q])
+            writer.writerow([id, title, url, text, q, q_annotator])
+            nr_questions += 1
 
     outfile.close()
+
+    print(f"Number of questions: {nr_questions}")
 
 
 if __name__ == "__main__":
