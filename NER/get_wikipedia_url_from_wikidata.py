@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 from requests import utils
 from collections import defaultdict
+import os
 
 
 # function provided by Odunayo Ogundepo
@@ -42,6 +43,8 @@ def read_text(filenam):
 
 
 if __name__ == "__main__":
+    os.makedirs("lang_biography", exist_ok=True)
+
     list_ids = read_text("id_list.csv")
 
     # keep only first 100000 ids

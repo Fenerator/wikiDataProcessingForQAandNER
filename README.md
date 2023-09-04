@@ -73,3 +73,23 @@ python questions2QA.py --input INPUT_FILE [--output OUTPUT_FILE]
 ```python
 python questions2QA.py --input "../../Documents/alswiki/text/example_QA_export.json" --output "../../Documents/alswiki/article_question_pairs.csv"
 ```
+
+## ``get_text_from_url.py``
+
+### Usage
+
+First create language biography by running: wikiExtract2csv/NER/get_wikipedia_url_from_wikidata.py on the `id_list.csv` file. Make sure to change the language codes in the script.
+
+```python
+python get_text_from_url.py --input INPUT_FILE_PATH  --output OUTPUT_FOLDER --split_by SPLIT_BY         
+```
+
+- `INPUT_FILE_PATH`: path to the language biography csv file containing the urls and ids of the articles, e.g. `NER/lang_biography/en.csv`
+- `OUTPUT_FOLDER`: path to the output folder where the processed text files will be saved.
+- `SPLIT_BY`: Choose whether to split the text of each article in sentences or paragraphs. Default is both, creates two seperate cvs output files. If you want to split by sentences, use `--split_by sentence`. If you want to split by paragraphs, use `--split_by paragraph`
+
+#### Example Usage
+
+```python
+python get_text_from_url.py --input NER/lang_biography/en.csv --output Test_Outputs_NER/ --sample_size 10 --split_by sentence         
+```
