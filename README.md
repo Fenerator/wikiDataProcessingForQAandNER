@@ -71,7 +71,7 @@ python questions2QA.py --input INPUT_FILE [--output OUTPUT_FILE]
 #### Example usage
 
 ```python
-python questions2QA.py --input "../../Documents/alswiki/text/example_QA_export.json" --output "../../Documents/alswiki/article_question_pairs.csv"
+ python questions2QA.py --input /Users/dug/Py/wikiExtract2csv/Question_Exports/ID_Questions.json --output /Users/dug/Py/wikiExtract2csv/Answer_Tasks/answer_tasks_ID.csv
 ```
 
 ## ``get_text_from_url.py``
