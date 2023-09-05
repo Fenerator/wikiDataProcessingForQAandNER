@@ -143,6 +143,7 @@ def extraction(args, frequent_qids):
             overlapping_links.append(link)
 
             if len(overlapping_qids) == args.sample_size:
+                print(f"Reached {args.sample_size} overlapping qids ({len(overlapping_qids)})")
                 break
 
         else:
@@ -175,6 +176,7 @@ def extraction(args, frequent_qids):
             assert len(text) > 0 and len(title) > 0 and len(url) > 0 and len(doc_id) > 0, f"Error in {input_file}: empty field in article {doc_id}, {url}"
         except AssertionError:
             print(f"Error in {input_file}: empty field in article {doc_id}, {url}, Title {title}, \n Text: {text}")
+
             continue
 
         # require a minimum length of the article # TODO
@@ -202,7 +204,7 @@ if __name__ == "__main__":
     parser.add_argument("--input", type=str, required=True, help="file path to the links of the language biograpy file, e.g. ../../Documents/alswiki/text/AA")
     parser.add_argument("--output", type=str, default="articles.csv", help="directory where to save the output csv files, e.g. ../../Documents/alswiki/text/")
 
-    parser.add_argument("--sample_size", type=int, default=100, help="first n articles to extract (default: 100)")
+    parser.add_argument("--sample_size", type=int, default=150, help="first n articles to extract (default: 100)")
 
     # parser.add_argument("--min", type=int, default=1000, help="minimal length in characters of each article (default: 1000)")
 

@@ -5,3 +5,4 @@ python get_text_from_url.py --output NER_V2_Outputs/ --split_by paragraph --inpu
 python get_text_from_url.py --output NER_V2_Outputs/ --split_by paragraph --input NER/lang_biography/id.csv
 python get_text_from_url.py --output NER_V2_Outputs/ --split_by paragraph --input NER/lang_biography/az.csv
 python get_text_from_url.py --output NER_V2_Outputs/ --split_by paragraph --input NER/lang_biography/tr.csv
+python get_text_from_url.py --output NER_V2_Outputs/ --split_by paragraph --input NER/lang_biography/yo.csv --sample_size 600
