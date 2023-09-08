@@ -19,6 +19,9 @@ def main(args):
     else:
         df_light = df[["id", "text", "question"]]
 
+    # keep only the first n rows
+    df_light = df_light.head(args.n_tasks)
+
     print(f"Number of answers: {len(df_light)}")
     print(f"Columns new: {df_light.columns}")
 
@@ -32,6 +35,8 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=str, required=False, default="article_question_pairs.csv", help="file path to the output csv file, e.g. ../../Documents/alswiki/text/articles.csv")
 
     parser.add_argument("--answers", action="store_true", help="to include the answers (labels) in the output file")
+
+    parser.add_argument("--n_tasks", type=int, default=100, help="First n tasks to include")
 
     args = parser.parse_args()
 

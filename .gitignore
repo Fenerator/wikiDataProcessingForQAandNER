@@ -140,3 +140,5 @@ text/*
 *.gz
 
 *.csv#
+
+*.conll

@@ -62,12 +62,13 @@ This is a simple python script to create question-answer-pairs from a Label Stud
 ### Usage
 
 ```python
-python questions2QA.py --input INPUT_FILE --output OUTPUT_FILE --labels
+python questions2QA.py --input INPUT_FILE --output OUTPUT_FILE --labels --n_tasks N_TASKS
 ```
 
 - `INPUT_FILE`: json file containing LabelStudio snapshot
 - `OUTPUT_FILE`: path to the output csv file containing , default is `./article_question_pairs.csv`
 - `labels`: add this flag to include the labels (answers) in the output csv file.
+- `N_TASKS`: first n of tasks to keep from the input, default is `100`
 
 #### Example usage
 
