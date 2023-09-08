@@ -57,21 +57,33 @@ python wikiExtract2csv.py --input "../../Documents/MRL_ST_2023/enwiki-20230420_e
 
 ## ``questions2QA.py``
 
-This is a simple python script to create question-answer-pairs from a Label Studio snapshot. It extracts the questions and texts from the snapshot and saves them in a csv file, creating one task per question.
+This is a simple python script to create question-answer-pairs from a Label Studio question project snapshot. It extracts the questions and texts from the snapshot and saves them in a csv file, creating one task per question.
 
 ### Usage
 
 ```python
-python questions2QA.py --input INPUT_FILE [--output OUTPUT_FILE]
+python questions2QA.py --input INPUT_FILE --output OUTPUT_FILE --labels
 ```
 
 - `INPUT_FILE`: json file containing LabelStudio snapshot
 - `OUTPUT_FILE`: path to the output csv file containing , default is `./article_question_pairs.csv`
+- `labels`: add this flag to include the labels (answers) in the output csv file.
 
 #### Example usage
 
 ```python
  python questions2QA.py --input /Users/dug/Py/wikiExtract2csv/Question_Exports/ID_Questions.json --output /Users/dug/Py/wikiExtract2csv/Answer_Tasks/answer_tasks_ID.csv
+```
+
+## ``answers2csv.py``
+
+Prerequisits: Label Studio answer project snapshot, exported as `csv` file.
+This script creates clean csv files containing only text, question and optionally, the answer. It eliminates annotator information.
+
+### Usage
+
+```python
+python answers2csv.py --input INPUT_FILE_PATH  --output OUTPUT_FOLDER --labels SPLIT_BY         
 ```
 
 ## ``get_text_from_url.py``
