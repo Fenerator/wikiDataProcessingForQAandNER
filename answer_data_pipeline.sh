@@ -1,4 +1,4 @@
-LANG=YO
+LANG=TR
 PART=1
 
 # Validation Sets 
