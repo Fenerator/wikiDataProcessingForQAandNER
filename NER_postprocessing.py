@@ -24,6 +24,16 @@ def main(args):
             new_line = re.sub(pattern, "O", line)
             f.write(new_line)
 
+    # remove labels
+    output_file_no_labels = Path(f"{output_file.parent}/{output_file.stem}_no_labels{output_file.suffix}")
+    print(f"Output file no labels: {output_file_no_labels}")
+    with open(output_file_no_labels, "w", encoding="utf-8") as f:
+        # remove labels
+        pattern = r"-X-\s\_\s\w.*$"  # remove this -X- _ O
+        for line in lines:
+            new_line = re.sub(pattern, "-X- _", line)
+            f.write(new_line)
+
     print(f"Done")
 
 
