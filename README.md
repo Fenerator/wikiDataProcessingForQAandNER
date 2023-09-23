@@ -1,8 +1,8 @@
-# wikiExtract tools
+# Tools for Processing Wikipedia Data for QA and NER Tasks
 
-## Description
+## Aim
 
-This is a simple python script to extract the content of a Wikipedia dump and save it as a csv file compatible with Label Studio.
+Extraction of the content of a Wikipedia dump and saving as a csv file compatible with annotation software Label Studio.
 
 - by default, it samples the firest 100 articles from the dump
 - it extracts the title, id, url, and text of each article
