@@ -40,7 +40,7 @@ if __name__ == "__main__":
     parser.add_argument("--answers", action="store_true", help="to include the answers (labels) in the output file")
 
     parser.add_argument("--n_tasks", type=int, default=100, help="n tasks to include")
-    parser.add_argument("--from_n_on", type=int, default=101, help="First n tasks not to include")
+    parser.add_argument("--from_n_on", type=int, default=0, help="First n tasks not to include")
 
     args = parser.parse_args()
 

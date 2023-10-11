@@ -26,7 +26,6 @@ def main(args):
 
     # remove labels
     output_file_no_labels = Path(f"{output_file.parent}/{output_file.stem}_no_labels{output_file.suffix}")
-    print(f"Output file no labels: {output_file_no_labels}")
     with open(output_file_no_labels, "w", encoding="utf-8") as f:
         # remove labels
         pattern = r"-X-\s\_\s\w.*$"  # remove this -X- _ O
@@ -34,7 +33,7 @@ def main(args):
             new_line = re.sub(pattern, "-X- _", line)
             f.write(new_line)
 
-    print(f"Done")
+    print(f"Preprocessing Done")
 
 
 if __name__ == "__main__":

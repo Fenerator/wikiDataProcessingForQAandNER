@@ -121,9 +121,3 @@ python NER_postprocessing.py --input INPUT_FILE_PATH  --output OUTPUT_FILE_PATH
 
 - `INPUT_FILE_PATH`: path to the `conll` file exported from LabelStudio, e.g. `NER/lang_biography/ALS_NER.conll`
 - `OUTPUT_FOLDER`: path to the file where containing the postprocessed file.
-
-#### Example Usage
-
-```python
-python NER_postprocessing.py --input NER/lang_biography/en.csv --output Test_Outputs_NER/ --sample_size 10 --split_by sentence         
-```

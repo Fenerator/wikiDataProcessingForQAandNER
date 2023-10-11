@@ -1,5 +1,5 @@
-LANG=YO
-PART=1
+LANG=AZ
+PART=2
 
 # Validation Sets 
 # with Answers
@@ -15,6 +15,6 @@ PART=1
 
 # Test Sets Normalized Lengths
 # with Answers
-python answers2csv.py --input "/Users/dug/Py/wikiExtract2csv/Answer_Exports/"$LANG"_Answers_"$PART".csv" --output "/Users/dug/Py/wikiExtract2csv/Data/normalized/QA_"$LANG"_Test.csv" --from_n_on 101 --answers --n_tasks 175 
+python answers2csv.py --input "/Users/dug/Py/wikiExtract2csv/Answer_Exports/"$LANG"_Answers_"$PART".csv" --output "/Users/dug/Py/wikiExtract2csv/Data/QA_normalized/QA_"$LANG"_Test.csv" --answers #--from_n_on 101  --n_tasks 175 
 # without Answers
-python answers2csv.py --input "/Users/dug/Py/wikiExtract2csv/Answer_Exports/"$LANG"_Answers_"$PART".csv" --output "/Users/dug/Py/wikiExtract2csv/Data/normalized/QA_"$LANG"_Test_no_labels.csv"  --from_n_on 101 --n_tasks 175
+python answers2csv.py --input "/Users/dug/Py/wikiExtract2csv/Answer_Exports/"$LANG"_Answers_"$PART".csv" --output "/Users/dug/Py/wikiExtract2csv/Data/QA_normalized/QA_"$LANG"_Test_no_labels.csv" # --from_n_on 101 --n_tasks 175
