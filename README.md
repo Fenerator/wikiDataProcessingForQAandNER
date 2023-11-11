@@ -157,7 +157,7 @@ All metrics are calculated using implementations from [Huggingface Evaluate Metr
 
 ### Usage
 
-`evaluate_QA.py` can be used as follows, needs to be run for every language and system separately:
+[`evaluate_QA.py`](evaluate_QA.py) can be used as follows, needs to be run for every language and system separately:
 
 ```bash
 python evaluate_QA.py --predictions PRED_FILE --labels GOLD_FILE --results RESULTS_FILE
